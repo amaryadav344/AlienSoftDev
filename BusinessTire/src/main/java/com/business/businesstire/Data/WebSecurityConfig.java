@@ -1,4 +1,4 @@
-package com.business.core.Data;
+package com.business.businesstire.Data;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

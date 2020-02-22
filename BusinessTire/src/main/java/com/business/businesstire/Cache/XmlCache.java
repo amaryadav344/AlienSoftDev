@@ -1,4 +1,4 @@
-package com.business.businesstire.Util;
+package com.business.businesstire.Cache;
 
 import com.business.utils.models.IXMLBase;
 
@@ -17,5 +17,10 @@ public class XmlCache {
     public void Add(String Key, IXMLBase value) {
         xmls.put(Key, value);
     }
+
+    public IXMLBase Get(String Key) {
+        return xmls.get(Key);
+    }
+
 
 }

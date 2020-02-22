@@ -1,4 +1,4 @@
 package com.business.businessobjects.Person;
 
-public class Sample {
+public class cdobusPerson extends dobusPerson {
 }
