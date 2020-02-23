@@ -1,10 +1,12 @@
 package com.business.businessobjects.Person;
 
+import com.business.businessobjects.DoBase;
+
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Date;
 
-public class dobusPerson {
+public class dobusPerson extends DoBase {
     public Integer PERSON_ID;
 
     public String LastName;
