@@ -63,7 +63,7 @@ public class ViewModel {
     public static ViewModel getViewModel(IEntity entity, BusBase busBase, IForm form) {
         ViewModel viewModel = new ViewModel();
         viewModel.setView(form);
-        JSONObject jsonObject = ValueHelper.GetEntityValue(entity, busBase);
+        JSONObject jsonObject = ValueHelper.GetFormData(entity,form, busBase);
         viewModel.setModel(jsonObject);
         return viewModel;
     }
