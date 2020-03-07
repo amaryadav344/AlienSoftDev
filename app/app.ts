@@ -31,12 +31,12 @@ run({
                 create: () => {
                     const page = new Page();
                     page.content = LayoutCreator.GetProgressLayout();
-                    getJSON<ViewModel>("http://192.168.0.120:8081/GetFormViewModel?form=PersonDetails")
+                    getJSON<ViewModel>("http://192.168.0.120:8081/GetFormViewModel?form=HomeDetails")
                     .then((ViewModel)=>{
                          page.content = LayoutCreator.GetPageTempate(
                             ViewModel,frame
                         );
-                        ViewModel.model.form="PersonDetails";
+                        ViewModel.model.form="HomeDetails";
                         const viewModel = fromObjectRecursive(ViewModel);
                         page.bindingContext=viewModel;
                     }).catch((e)=>{  

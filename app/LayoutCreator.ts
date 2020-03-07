@@ -12,6 +12,8 @@ import { ScrollView } from "tns-core-modules/ui/scroll-view/scroll-view";
 import { getJSON, request } from "tns-core-modules/http";
 import { ViewModel } from "./Common/ViewModel";
 import { EventData, fromObjectRecursive } from "tns-core-modules/data/observable";
+import { ItemEventData, ListView } from "tns-core-modules/ui/list-view";
+
 
 export class LayoutCreator {
     public static GetProgressLayout() {
@@ -56,11 +58,14 @@ export class LayoutCreator {
                     frame
                 );
                 layout.content = newlayout;
-                this.InflateChild(
-                    newlayout,
-                    controls[i].control.controls,
-                    frame
-                );
+                if(controls[i].control.controls){
+                    this.InflateChild(
+                        newlayout,
+                        controls[i].control.controls,
+                        frame
+                    );
+                }
+                
             }
         }
     }
@@ -91,6 +96,9 @@ export class LayoutCreator {
                 break;
             case "Button":
                 layout = this.CreateButton(control, frame);
+                break;
+            case "ListView":
+                layout = this.CreateListView(control);
                 break;
         }
         return layout;
@@ -168,6 +176,26 @@ export class LayoutCreator {
         const view = new ScrollView();
         this.SetCommonAttributes(control, view);
         return view;
+    }
+    public static CreateListView(control) {
+        const listView = new ListView();
+        listView.className = "list-group";
+        const bind: BindingOptions = {
+            sourceProperty: "model."+control.entityField,
+            targetProperty: "items ",
+            twoWay: true
+        };
+        listView.on(ListView.itemLoadingEvent, (args: ItemEventData) => {
+            if (!args.view) {
+                // Create label if it is not already created.
+                args.view = new Label();
+                args.view.className = "list-group-item";
+            }
+            (<any>args.view).text ="Sample";
+            
+        });
+        this.SetCommonAttributes(control, listView);
+        return listView;
     }
 
     public static SetupButtonClick(control, frame, data) {
