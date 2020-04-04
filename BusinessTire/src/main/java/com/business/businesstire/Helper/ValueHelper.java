@@ -6,6 +6,7 @@ import com.business.businesstire.Cache.MetaDataCache;
 import com.business.utils.models.Entity.ICollection;
 import com.business.utils.models.Entity.IColumn;
 import com.business.utils.models.Entity.IEntity;
+import com.business.utils.models.Entity.IProperty;
 import com.business.utils.models.UI.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -64,8 +65,9 @@ public class ValueHelper {
     }
 
     private static Object GetPropValue(String entityField, IEntity entity, BusBase busBase) {
+        // Load Column Value
         if (entity.getColumns() != null) {
-            Optional<IColumn> optionalIColumn = Arrays.stream(entity.getColumns()).filter(iColumn -> iColumn.getName().equals(entityField)).findFirst();
+            Optional<IColumn> optionalIColumn = Arrays.stream(entity.getColumns()).filter(x -> x.getName().equals(entityField)).findFirst();
             if (optionalIColumn.isPresent()) {
                 IColumn column = optionalIColumn.get();
                 try {
@@ -76,7 +78,46 @@ public class ValueHelper {
                 }
             }
         }
+        // Load Property Value
+        if (entity.getProperties() != null) {
+            Optional<IProperty> optionalIProperty = Arrays.stream(entity.getProperties())
+                    .filter(x -> x.getName().equals(entityField))
+                    .findFirst();
+            if (optionalIProperty.isPresent()) {
+                IProperty property = optionalIProperty.get();
+                return getObject(busBase, property.getObjectField());
+            }
+
+        }
+        // Load Collection Value
+        if (entity.getCollections() != null) {
+            Optional<ICollection> optionalICollection = Arrays.stream(entity.getCollections())
+                    .filter(x -> x.getName().equals(entityField))
+                    .findFirst();
+            if (optionalICollection.isPresent()) {
+                ICollection collection = optionalICollection.get();
+                return getObject(busBase, collection.getObjectField());
+            }
+
+        }
+
         return null;
+    }
+
+    private static Object getObject(BusBase busBase, String objectField) {
+        String[] QualifiedPath = objectField.split(".//");
+        Object value = busBase;
+        for (String symbol : QualifiedPath) {
+            try {
+                if (value != null) {
+                    value = value.getClass().getDeclaredField(symbol).get(busBase);
+                }
+            } catch (NoSuchFieldException | IllegalAccessException e) {
+                e.printStackTrace();
+                value = null;
+            }
+        }
+        return value;
     }
 
     private static void GetListViewData(ICollection collection, IListView listView, BusBase busBase, JSONObject jsonObject) {

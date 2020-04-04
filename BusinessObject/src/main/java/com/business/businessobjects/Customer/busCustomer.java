@@ -16,5 +16,6 @@ public class busCustomer extends BusBase {
     public busCustomer() {
         this.icdoCustomer = new cdoCustomer();
         icdoCustomer.setFirstName("Amardeep");
+        icdoCustomer.setLastName("Yadav");
     }
 }

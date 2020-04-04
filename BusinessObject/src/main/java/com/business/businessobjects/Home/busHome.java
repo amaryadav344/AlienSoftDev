@@ -8,8 +8,10 @@ import java.util.List;
 
 public class busHome extends BusBase {
     public List<busCustomer> Customers;
+    public String HomeName;
 
     public void LoadHomeDetails() {
+        HomeName = "HomeDetails";
         Customers = new ArrayList<>();
         Customers.add(new busCustomer());
         Customers.add(new busCustomer());
