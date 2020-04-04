@@ -1,6 +1,7 @@
 import {
     GridLayout,
-    ItemSpec
+    ItemSpec,
+    GridUnitType
 } from "tns-core-modules/ui/layouts/grid-layout/grid-layout";
 import { ActivityIndicator } from "tns-core-modules/ui/activity-indicator/activity-indicator";
 import { Label } from "tns-core-modules/ui/label/label";
@@ -39,30 +40,33 @@ export class LayoutCreator {
         return progressLayout;
     }
     public static GetPageTempate(ViewModel, farme): Page {
-        const parent = this.GetControlLayout(ViewModel.view.control, farme);
-        this.InflateChild(parent, ViewModel.view.control.controls, farme);
+        const parent = this.GetControlLayout(ViewModel.view.control, farme,'model.');
+        if(ViewModel.view.control.controls){
+            this.InflateChild(parent, ViewModel.view.control.controls, farme,'model.');
+        }
+
         return parent;
     }
 
-    public static InflateChild(parent, controls, frame) {
+    public static InflateChild(parent, controls, frame,prefix) {
         for (let i = 0; i < controls.length; i++) {
-            const layout = this.GetControlLayout(controls[i], frame);
+            const layout = this.GetControlLayout(controls[i], frame,prefix);
             parent.addChild(layout);
 
             if (controls[i].controls) {
-                this.InflateChild(layout, controls[i].controls, frame);
+                this.InflateChild(layout, controls[i].controls, frame,prefix);
             }
             if (controls[i].control) {
                 const newlayout = this.GetControlLayout(
                     controls[i].control,
-                    frame
+                    frame,prefix
                 );
                 layout.content = newlayout;
                 if(controls[i].control.controls){
                     this.InflateChild(
                         newlayout,
                         controls[i].control.controls,
-                        frame
+                        frame,prefix
                     );
                 }
                 
@@ -70,41 +74,41 @@ export class LayoutCreator {
         }
     }
 
-    public static GetControlLayout(control, frame) {
+    public static GetControlLayout(control, frame,prefix) {
         let layout;
         switch (control.type) {
             case "StackLayout":
-                layout = this.CreateStackLayout(control);
+                layout = this.CreateStackLayout(control,prefix);
                 break;
             case "Label":
-                layout = this.CreateLabel(control);
+                layout = this.CreateLabel(control,prefix);
                 break;
             case "Input":
-                layout = this.CreateInput(control);
+                layout = this.CreateInput(control,prefix);
                 break;
             case "Caption":
-                layout = this.CreateCaption(control);
+                layout = this.CreateCaption(control,prefix);
                 break;
             case "GridLayout":
-                layout = this.CreateGrid(control);
+                layout = this.CreateGrid(control,prefix);
                 break;
             case "Checkbox":
-                layout = this.CreateCheckBox(control);
+                layout = this.CreateCheckBox(control,prefix);
                 break;
             case "ScrollView":
-                layout = this.CreateScrollView(control);
+                layout = this.CreateScrollView(control,prefix);
                 break;
             case "Button":
-                layout = this.CreateButton(control, frame);
+                layout = this.CreateButton(control, frame,prefix);
                 break;
             case "ListView":
-                layout = this.CreateListView(control);
+                layout = this.CreateListView(control,frame,prefix);
                 break;
         }
         return layout;
     }
 
-    public static CreateStackLayout(control) {
+    public static CreateStackLayout(control,prefix) {
         const stack = new StackLayout();
         if (control.orientation) {
             stack.orientation = control.orientation;
@@ -112,10 +116,10 @@ export class LayoutCreator {
         this.SetCommonAttributes(control, stack);
         return stack;
     }
-    public static CreateLabel(control) {
+    public static CreateLabel(control,prefix) {
         const label = new Label();
         const textbind: BindingOptions = {
-            sourceProperty: "model."+control.entityField,
+            sourceProperty: prefix + control.ID,
             targetProperty: "text",
             twoWay: true
         };
@@ -123,24 +127,24 @@ export class LayoutCreator {
         label.bind(textbind);
         return label;
     }
-    public static CreateInput(control) {
+    public static CreateInput(control,prefix) {
         const input = new TextField();
         this.SetCommonAttributes(control, input);
         const textbind: BindingOptions = {
-            sourceProperty: "model."+control.entityField,
+            sourceProperty: prefix +  control.ID,
             targetProperty: "text",
             twoWay: true
         };
         input.bind(textbind);
         return input;
     }
-    public static CreateCaption(control) {
+    public static CreateCaption(control,prefix) {
         const label = new Label();
         label.text = "test Caption";
         this.SetCommonAttributes(control, label);
         return label;
     }
-    public static CreateButton(control, frame) {
+    public static CreateButton(control, frame,prefix) {
         const button = new Button();
         button.text = "test Caption";
         button.addEventListener("tap", data => {
@@ -149,12 +153,12 @@ export class LayoutCreator {
         this.SetCommonAttributes(control, button);
         return button;
     }
-    public static CreateGrid(control) {
+    public static CreateGrid(control,prefix) {
         const grid = new GridLayout();
         if (control.columns) {
             var columns = control.columns.split(",");
             columns.forEach(column => {
-                grid.addColumn(new ItemSpec(1, "star"));
+                grid.addColumn(new ItemSpec(1, column));
             });
         }
         if (control.rows) {
@@ -166,32 +170,34 @@ export class LayoutCreator {
         this.SetCommonAttributes(control, grid);
         return grid;
     }
-    public static CreateCheckBox(control) {
+    public static CreateCheckBox(control,prefix) {
         const label = new Label();
         label.text = "test CheckBox";
         this.SetCommonAttributes(control, label);
         return label;
     }
-    public static CreateScrollView(control) {
+    public static CreateScrollView(control,prefix) {
         const view = new ScrollView();
         this.SetCommonAttributes(control, view);
         return view;
     }
-    public static CreateListView(control) {
+    public static CreateListView(control,farme,prefix) {
         const listView = new ListView();
+        listView.id=control.ID;
         listView.className = "list-group";
         const bind: BindingOptions = {
-            sourceProperty: "model."+control.entityField,
-            targetProperty: "items ",
+            sourceProperty: prefix + control.ID,
+            targetProperty: 'items',
             twoWay: true
         };
+        listView.bind(bind);
         listView.on(ListView.itemLoadingEvent, (args: ItemEventData) => {
             if (!args.view) {
-                // Create label if it is not already created.
-                args.view = new Label();
-                args.view.className = "list-group-item";
+                if(control.control){
+                    args.view=this.GetControlLayout(control.control,farme,'');
+                    this.InflateChild(args.view,control.control.controls,farme,'')
+                }
             }
-            (<any>args.view).text ="Sample";
             
         });
         this.SetCommonAttributes(control, listView);

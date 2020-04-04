@@ -21,6 +21,7 @@ import { LayoutCreator } from "./LayoutCreator";
 import {getJSON } from "tns-core-modules/http";
 import { ViewModel } from "./Common/ViewModel";
 import { EventData, fromObjectRecursive } from "tns-core-modules/data/observable";
+import { ListView } from "tns-core-modules/ui/list-view/list-view";
 
 
 
