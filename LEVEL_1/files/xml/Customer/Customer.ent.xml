@@ -1,0 +1,27 @@
+<entity type="entity" name="Customer" parentEntity="" modelName="busCustomer" isWrapper="false" databaseObjectField="icdoCustomer" tableName="Customer">
+  <columns>
+    <column name="Id" objectField="Id" dataType="Integer" maxLength="10" canBeNull="NO"/>
+    <column name="FirstName" objectField="FirstName" dataType="String" maxLength="40" canBeNull="NO"/>
+    <column name="LastName" objectField="LastName" dataType="String" maxLength="40" canBeNull="NO"/>
+    <column name="City" objectField="City" dataType="String" maxLength="40" canBeNull="YES"/>
+    <column name="Country" objectField="Country" dataType="String" maxLength="40" canBeNull="YES"/>
+    <column name="Phone" objectField="Phone" dataType="String" maxLength="20" canBeNull="YES"/>
+  </columns>
+  <properties/>
+  <objects/>
+  <collections/>
+  <queries/>
+  <validation>
+    <rules/>
+    <initialLoads/>
+    <softErrors/>
+    <hardErrors/>
+    <updateRules/>
+    <deleteRules/>
+    <groupRules/>
+  </validation>
+  <businessObject>
+    <customMethods/>
+    <objectMethods/>
+  </businessObject>
+</entity>

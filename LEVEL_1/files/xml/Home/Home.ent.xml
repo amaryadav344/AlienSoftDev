@@ -1,0 +1,43 @@
+<entity type="entity" name="Home" parentEntity="" modelName="busHome" isWrapper="true" databaseObjectField="" tableName="">
+  <columns/>
+  <properties>
+    <property name="HomeName" dataType="String" objectField="HomeName"/>
+  </properties>
+  <objects/>
+  <collections>
+    <collection name="lstCustomers" entity="Customer" objectField="Customers"/>
+  </collections>
+  <queries>
+    <query sql="select * from SGS_ORDER_DETAILS where CUSTEMER_ID=@CUSTEMER_ID" name="GetTop10OrderDetailsByTop10Customer" queryType="Select Query">
+      <parameters>
+        <parameter name="@CUSTEMER_ID" dataType="Integer"/>
+      </parameters>
+    </query>
+  </queries>
+  <validation>
+    <rules/>
+    <initialLoads/>
+    <softErrors/>
+    <hardErrors/>
+    <updateRules/>
+    <deleteRules/>
+    <groupRules/>
+  </validation>
+  <businessObject>
+    <customMethods>
+      <customMethod name="LoadHomeForm" mode="All" loadPrimaryObject="false">
+        <loadMappings>
+          <loadMapping name="LoadHomeDetails" loadType="Method"/>
+          <loadMapping name="GetTop10OrderDetailsByTop10Customer" loadType="Query">
+            <loadParameters>
+              <loadParameter name="@CUSTEMER_ID" entityField=""/>
+            </loadParameters>
+          </loadMapping>
+        </loadMappings>
+      </customMethod>
+    </customMethods>
+    <objectMethods>
+      <objectMethod name="LoadHomeDetails" returnType="void"/>
+    </objectMethods>
+  </businessObject>
+</entity>
