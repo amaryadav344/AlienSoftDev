@@ -1,0 +1,36 @@
+<entity type="entity" name="Orderitem" parentEntity="" modelName="busOrderitem" isWrapper="false" databaseObjectField="icdoOrderitem" tableName="OrderItem">
+  <columns>
+    <column name="Id" objectField="Id" dataType="Integer" maxLength="10" canBeNull="NO"/>
+    <column name="OrderId" objectField="OrderId" dataType="Integer" maxLength="10" canBeNull="NO"/>
+    <column name="ProductId" objectField="ProductId" dataType="Integer" maxLength="10" canBeNull="NO"/>
+    <column name="UnitPrice" objectField="UnitPrice" dataType="String" maxLength="12" canBeNull="NO"/>
+    <column name="Quantity" objectField="Quantity" dataType="Integer" maxLength="10" canBeNull="NO"/>
+  </columns>
+  <properties/>
+  <objects/>
+  <collections/>
+  <queries/>
+  <validation>
+    <rules>
+      <rule name="FirstNameValidationRule" expression="this.FirstName!=''" isObjectRule="false">
+        <message message="" messageId="5">
+          <parameters/>
+        </message>
+      </rule>
+    </rules>
+    <initialLoads>
+      <initialLoad name="FirstNameValidationRule"/>
+    </initialLoads>
+    <softErrors/>
+    <hardErrors>
+      <hardError name="FirstNameValidationRule"/>
+    </hardErrors>
+    <updateRules/>
+    <deleteRules/>
+    <groupRules/>
+  </validation>
+  <businessObject>
+    <customMethods/>
+    <objectMethods/>
+  </businessObject>
+</entity>

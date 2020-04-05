@@ -1,0 +1,15 @@
+<form type="form" name="HomeDetails" entity="Home">
+  <loadMethod name="LoadHomeForm" mode="All" loadPrimaryObject="false">
+    <loadMappings>
+      <loadMapping name="LoadHomeDetails" loadType="Method"/>
+    </loadMappings>
+  </loadMethod>
+  <control type="ListView" entityField="lstCustomers" ID="UserList">
+    <control type="GridLayout" columns="star,auto" rows="star,auto" ID="GridLayout1">
+      <controls>
+        <controls type="Label" row="0" col="0" entityField="FirstName" ID="Label1"/>
+        <controls type="Label" row="0" col="1" entityField="LastName" ID="Label1"/>
+      </controls>
+    </control>
+  </control>
+</form>
