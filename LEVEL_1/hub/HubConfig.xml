@@ -1,0 +1,18 @@
+<HubConfig>
+    <DatabaseConnection>
+        <DatabaseUrl>jdbc:sqlserver://DESKTOP-0IB7S30;databaseName=ALIEN_STUDIO</DatabaseUrl>
+        <DatabaseUsername>DEVUSER</DatabaseUsername>
+        <DatabasePassword>DEVPS</DatabasePassword>
+        <DatabaseDriver>com.microsoft.sqlserver.jdbc.SQLServerDriver</DatabaseDriver>
+    </DatabaseConnection>
+    <Branches>
+    	<Branch Name="Level_1" Default="true">
+    		<XMLPath>C:\Users\Amardeep Yadav\WebstormProjects\Sourcecontrolroot\AlienSoftDev\LEVEL_1\files\xml</XMLPath>
+    		<PackageName>com.business.businessobjects</PackageName>
+    		<SourcePath>C:\Users\Amardeep Yadav\WebstormProjects\Sourcecontrolroot\AlienSoftDev\LEVEL_1\app\ProAlienSoftBusiness\BusinessObject\src\main\java</SourcePath>
+    		<BusinessObjects>
+    			<BusinessObject>C:\Users\Amardeep Yadav\WebstormProjects\Sourcecontrolroot\AlienSoftDev\LEVEL_1\bin\BusinessObjects.jar</BusinessObject>
+    		</BusinessObjects>
+    	</Branch>
+    </Branches>
+</HubConfig>

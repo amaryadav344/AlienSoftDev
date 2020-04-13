@@ -6,7 +6,7 @@
       <controls type="ScrollView" ID="ScrollView1">
         <control type="StackLayout" ID="StackLayout1">
           <controls>
-            <controls type="Label" ID="Label5"/>
+            <controls type="Label" entityField="ProductId" ID="Label5"/>
             <controls type="Label" ID="Label6"/>
           </controls>
         </control>
