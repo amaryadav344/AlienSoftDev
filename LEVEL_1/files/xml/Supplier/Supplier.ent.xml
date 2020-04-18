@@ -1,0 +1,29 @@
+<entity type="entity" name="Supplier" parentEntity="" modelName="busSupplier" isWrapper="false" databaseObjectField="icdoSupplier" tableName="Supplier">
+  <columns>
+    <column name="Id" objectField="Id" dataType="Integer" maxLength="10" canBeNull="NO"/>
+    <column name="CompanyName" objectField="CompanyName" dataType="String" maxLength="40" canBeNull="NO"/>
+    <column name="ContactName" objectField="ContactName" dataType="String" maxLength="50" canBeNull="YES"/>
+    <column name="ContactTitle" objectField="ContactTitle" dataType="String" maxLength="40" canBeNull="YES"/>
+    <column name="City" objectField="City" dataType="String" maxLength="40" canBeNull="YES"/>
+    <column name="Country" objectField="Country" dataType="String" maxLength="40" canBeNull="YES"/>
+    <column name="Phone" objectField="Phone" dataType="String" maxLength="30" canBeNull="YES"/>
+    <column name="Fax" objectField="Fax" dataType="String" maxLength="30" canBeNull="YES"/>
+  </columns>
+  <properties/>
+  <objects/>
+  <collections/>
+  <queries/>
+  <validation>
+    <rules/>
+    <initialLoads/>
+    <softErrors/>
+    <hardErrors/>
+    <updateRules/>
+    <deleteRules/>
+    <groupRules/>
+  </validation>
+  <businessObject>
+    <customMethods/>
+    <objectMethods/>
+  </businessObject>
+</entity>
