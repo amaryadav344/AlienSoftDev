@@ -12,16 +12,9 @@
     <artifactId>BusinessTire</artifactId>
     <dependencies>
         <dependency>
-            <groupId>com.business</groupId>
-            <artifactId>Core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.business</groupId>
-            <artifactId>BusinessObject</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.10</version>
         </dependency>
     </dependencies>
 

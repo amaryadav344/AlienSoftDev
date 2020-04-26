@@ -1,0 +1,12 @@
+<BusinessConfig>
+	<Database>
+        <DatabaseUrl>jdbc:sqlserver://DESKTOP-0IB7S30;databaseName=DEMO</DatabaseUrl>
+        <DatabaseUsername>DEVUSER</DatabaseUsername>
+        <DatabasePassword>DEVPS</DatabasePassword>
+        <DatabaseDriver>com.microsoft.sqlserver.jdbc.SQLServerDriver</DatabaseDriver>
+    </Database>
+    <Configs>
+    	<Config key="XMLPath" value="C:\Users\Amardeep Yadav\WebstormProjects\Sourcecontrolroot\AlienSoftDev\LEVEL_1\files\xml"/>
+    	<Config key="PackageName" value="com.business.businessobjects"/>
+    </Configs>
+</BusinessConfig>

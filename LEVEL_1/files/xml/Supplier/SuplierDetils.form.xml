@@ -1,0 +1,9 @@
+<form type="form" name="SuplierDetils" entity="Supplier">
+  <loadMethod name="" mode="All" loadPrimaryObject="false"/>
+  <control type="StackLayout" ID="stackLayout">
+    <controls>
+      <controls type="Label" ID="Label1"/>
+      <controls type="Button" text="" onClick="btnExecuteBusinessMethod" method="" form="SuplierDetils" ID="Button1"/>
+    </controls>
+  </control>
+</form>

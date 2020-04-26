@@ -1,0 +1,27 @@
+<entity type="entity" name="Product" parentEntity="" modelName="busProduct" isWrapper="false" databaseObjectField="icdoProduct" tableName="Product">
+  <columns>
+    <column name="Id" objectField="Id" dataType="Integer" maxLength="10" canBeNull="NO"/>
+    <column name="ProductName" objectField="ProductName" dataType="String" maxLength="50" canBeNull="NO"/>
+    <column name="SupplierId" objectField="SupplierId" dataType="Integer" maxLength="10" canBeNull="NO"/>
+    <column name="UnitPrice" objectField="UnitPrice" dataType="String" maxLength="12" canBeNull="YES"/>
+    <column name="Package" objectField="Package" dataType="String" maxLength="30" canBeNull="YES"/>
+    <column name="IsDiscontinued" objectField="IsDiscontinued" dataType="Integer" maxLength="0" canBeNull="NO"/>
+  </columns>
+  <properties/>
+  <objects/>
+  <collections/>
+  <queries/>
+  <validation>
+    <rules/>
+    <initialLoads/>
+    <softErrors/>
+    <hardErrors/>
+    <updateRules/>
+    <deleteRules/>
+    <groupRules/>
+  </validation>
+  <businessObject>
+    <customMethods/>
+    <objectMethods/>
+  </businessObject>
+</entity>

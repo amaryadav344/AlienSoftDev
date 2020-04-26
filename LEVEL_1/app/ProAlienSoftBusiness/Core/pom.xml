@@ -11,7 +11,17 @@
 
     <artifactId>Core</artifactId>
     <dependencies>
-
+        <dependency>
+            <groupId>com.alientools.utils</groupId>
+            <artifactId>Utils</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.business</groupId>
+            <artifactId>BusinessObject</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
 

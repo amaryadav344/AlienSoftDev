@@ -10,6 +10,7 @@
     		<XMLPath>C:\Users\Amardeep Yadav\WebstormProjects\Sourcecontrolroot\AlienSoftDev\LEVEL_1\files\xml</XMLPath>
     		<PackageName>com.business.businessobjects</PackageName>
     		<SourcePath>C:\Users\Amardeep Yadav\WebstormProjects\Sourcecontrolroot\AlienSoftDev\LEVEL_1\app\ProAlienSoftBusiness\BusinessObject\src\main\java</SourcePath>
+            <BusinessConfigPath>C:\Users\Amardeep Yadav\WebstormProjects\Sourcecontrolroot\AlienSoftDev\LEVEL_1\bin\BusinessConfig.xml</BusinessConfigPath>
     		<BusinessObjects>
     			<BusinessObject>C:\Users\Amardeep Yadav\WebstormProjects\Sourcecontrolroot\AlienSoftDev\LEVEL_1\bin\BusinessObjects.jar</BusinessObject>
     		</BusinessObjects>
