@@ -46,14 +46,14 @@ public class MetaDataCache {
                     } else if (value instanceof IForm) {
                         IForm form = (IForm) value;
                         xmlCache.Add(form.getName(), value);
-                        statuses.add(new Status(XMLPath + "/" + file.getPath(), "local"));
+                        statuses.add(new Status(XMLPath + "\\" + file.getPath(), "local"));
                     }
                 } catch (IOException ignored) {
                     statuses.add(new Status(XMLPath + "/" + file.getPath(), "error"));
                 }
             }
         } catch (IOException ignored) {
-            statuses.add(new Status("Loading File Error", "error"));
+            statuses.add(new Status("File Loading Error", "error"));
         }
         return statuses;
     }
