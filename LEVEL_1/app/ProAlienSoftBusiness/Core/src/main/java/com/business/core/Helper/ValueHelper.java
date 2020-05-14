@@ -1,6 +1,6 @@
 package com.business.core.Helper;
 
-import com.business.common.BusBase;
+import com.business.common.base.BusBase;
 import com.business.utils.models.Entity.IEntity;
 import com.business.utils.models.UI.*;
 import org.json.JSONObject;

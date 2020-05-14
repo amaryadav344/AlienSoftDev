@@ -1,18 +1,19 @@
 package com.business.businessobjects.Customer.Service;
 
+import com.business.businessobjects.Customer.Constant.CustomerConstants;
+import com.business.businessobjects.Customer.DTO.Customer;
 import com.business.businessobjects.Customer.Repository.CustomerRepository;
-import com.business.common.ServiceBase;
+import com.business.businessobjects.Customer.Validator.CustomerValidator;
+import com.business.common.base.ServiceBase;
+import java.lang.Integer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
-@Service
-@Scope("session")
-public class CustomerService extends ServiceBase {
-  private CustomerRepository CustomerRepository;
-
+@Service(CustomerConstants.BeanName.CUSTOMER_SERVICE)
+public class CustomerService extends ServiceBase<Customer, Integer> {
   @Autowired
-  void setCustomerRepository(CustomerRepository CustomerRepository) {
-    this.CustomerRepository=CustomerRepository;
+  public CustomerService(CustomerRepository CustomerRepository,
+      CustomerValidator CustomerValidator) {
+    super(CustomerRepository, CustomerValidator);
   }
 }

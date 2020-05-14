@@ -1,18 +1,19 @@
 package com.business.businessobjects.Setting.Service;
 
+import com.business.businessobjects.Setting.Constant.SystemSettingConstants;
+import com.business.businessobjects.Setting.DTO.SystemSetting;
 import com.business.businessobjects.Setting.Repository.SystemSettingRepository;
-import com.business.common.ServiceBase;
+import com.business.businessobjects.Setting.Validator.SystemSettingValidator;
+import com.business.common.base.ServiceBase;
+import java.lang.Integer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
-@Service
-@Scope("session")
-public class SystemSettingService extends ServiceBase {
-  private SystemSettingRepository SystemSettingRepository;
-
+@Service(SystemSettingConstants.BeanName.SYSTEMSETTING_SERVICE)
+public class SystemSettingService extends ServiceBase<SystemSetting, Integer> {
   @Autowired
-  void setSystemSettingRepository(SystemSettingRepository SystemSettingRepository) {
-    this.SystemSettingRepository=SystemSettingRepository;
+  public SystemSettingService(SystemSettingRepository SystemSettingRepository,
+      SystemSettingValidator SystemSettingValidator) {
+    super(SystemSettingRepository, SystemSettingValidator);
   }
 }

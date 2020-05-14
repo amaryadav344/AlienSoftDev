@@ -1,6 +1,6 @@
 package com.business.core.Model;
 
-import com.business.common.BusBase;
+import com.business.common.base.BusBase;
 import com.business.core.Helper.ValueHelper;
 import com.business.utils.models.Entity.IEntity;
 import com.business.utils.models.UI.IForm;

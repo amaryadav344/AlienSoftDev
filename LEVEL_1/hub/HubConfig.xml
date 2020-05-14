@@ -11,9 +11,10 @@
     		<PackageName>com.business.businessobjects</PackageName>
     		<SourcePath>C:\Users\Amardeep Yadav\WebstormProjects\Sourcecontrolroot\AlienSoftDev\LEVEL_1\app\ProAlienSoftBusiness\BusinessObject\src\main\java</SourcePath>
             <BusinessConfigPath>C:\Users\Amardeep Yadav\WebstormProjects\Sourcecontrolroot\AlienSoftDev\LEVEL_1\bin\BusinessConfig.xml</BusinessConfigPath>
-    		<BusinessObjectBase>com.business.common.BusBase</BusinessObjectBase>
-            <ServiceBase>com.business.common.ServiceBase</ServiceBase>
-            <RepositoryBase>com.business.common.RepositoryBase</RepositoryBase>
+    		<BusinessObjectBase>com.business.common.base.BusBase</BusinessObjectBase>
+            <ServiceBase>com.business.common.base.ServiceBase</ServiceBase>
+            <RepositoryBase>com.business.common.base.RepositoryBase</RepositoryBase>
+            <ValidationBase>com.business.common.base.ValidationBase</ValidationBase>
     	</Branch>
     </Branches>
 </HubConfig>

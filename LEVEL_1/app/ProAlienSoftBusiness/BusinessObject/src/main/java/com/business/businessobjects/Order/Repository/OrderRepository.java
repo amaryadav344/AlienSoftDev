@@ -1,15 +1,11 @@
 package com.business.businessobjects.Order.Repository;
 
+import com.business.businessobjects.Order.Constant.OrderConstants;
 import com.business.businessobjects.Order.DTO.Order;
-import com.business.common.RepositoryBase;
-
+import com.business.common.base.RepositoryBase;
 import java.lang.Integer;
-
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.context.WebApplicationContext;
 
-@Repository
-//@Scope(WebApplicationContext.SCOPE_REQUEST)
+@Repository(OrderConstants.BeanName.ORDER_REPOSITORY)
 public interface OrderRepository extends RepositoryBase<Order, Integer> {
 }

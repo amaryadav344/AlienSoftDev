@@ -1,6 +1,6 @@
 package com.business.businessobjects.Setting.DTO;
 
-import com.business.common.BusBase;
+import com.business.common.base.BusBase;
 import java.lang.Integer;
 import java.lang.String;
 import javax.persistence.Entity;
@@ -13,18 +13,18 @@ import javax.persistence.Table;
 )
 public class SystemSetting extends BusBase {
   @Id
-  private Integer SystemSettingid;
+  private Integer SystemSettingId;
 
   private String SettingName;
 
   private String SettingValue;
 
-  public Integer getSystemSettingid() {
-    return SystemSettingid;
+  public Integer getSystemSettingId() {
+    return SystemSettingId;
   }
 
-  public void setSystemSettingid(Integer SystemSettingid) {
-    this.SystemSettingid=SystemSettingid;
+  public void setSystemSettingId(Integer SystemSettingId) {
+    this.SystemSettingId=SystemSettingId;
   }
 
   public String getSettingName() {

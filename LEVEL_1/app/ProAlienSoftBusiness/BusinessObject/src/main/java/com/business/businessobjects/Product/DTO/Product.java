@@ -1,6 +1,6 @@
 package com.business.businessobjects.Product.DTO;
 
-import com.business.common.BusBase;
+import com.business.common.base.BusBase;
 import java.lang.Integer;
 import java.lang.String;
 import javax.persistence.Entity;
@@ -15,15 +15,15 @@ public class Product extends BusBase {
   @Id
   private Integer Id;
 
-  private String Productname;
+  private String ProductName;
 
-  private Integer Supplierid;
+  private Integer SupplierId;
 
-  private String Unitprice;
+  private String UnitPrice;
 
   private String Package;
 
-  private Integer Isdiscontinued;
+  private Integer DiscontinuedFlag;
 
   public Integer getId() {
     return Id;
@@ -33,28 +33,28 @@ public class Product extends BusBase {
     this.Id=Id;
   }
 
-  public String getProductname() {
-    return Productname;
+  public String getProductName() {
+    return ProductName;
   }
 
-  public void setProductname(String Productname) {
-    this.Productname=Productname;
+  public void setProductName(String ProductName) {
+    this.ProductName=ProductName;
   }
 
-  public Integer getSupplierid() {
-    return Supplierid;
+  public Integer getSupplierId() {
+    return SupplierId;
   }
 
-  public void setSupplierid(Integer Supplierid) {
-    this.Supplierid=Supplierid;
+  public void setSupplierId(Integer SupplierId) {
+    this.SupplierId=SupplierId;
   }
 
-  public String getUnitprice() {
-    return Unitprice;
+  public String getUnitPrice() {
+    return UnitPrice;
   }
 
-  public void setUnitprice(String Unitprice) {
-    this.Unitprice=Unitprice;
+  public void setUnitPrice(String UnitPrice) {
+    this.UnitPrice=UnitPrice;
   }
 
   public String getPackage() {
@@ -65,11 +65,11 @@ public class Product extends BusBase {
     this.Package=Package;
   }
 
-  public Integer getIsdiscontinued() {
-    return Isdiscontinued;
+  public Integer getDiscontinuedFlag() {
+    return DiscontinuedFlag;
   }
 
-  public void setIsdiscontinued(Integer Isdiscontinued) {
-    this.Isdiscontinued=Isdiscontinued;
+  public void setDiscontinuedFlag(Integer DiscontinuedFlag) {
+    this.DiscontinuedFlag=DiscontinuedFlag;
   }
 }

@@ -1,6 +1,6 @@
 package com.business.businessobjects.Order.DTO;
 
-import com.business.common.BusBase;
+import com.business.common.base.BusBase;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Date;
