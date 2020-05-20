@@ -6,5 +6,6 @@
     <attribute name="UnitPrice" objectField="UnitPrice" dataType="String" isPrimaryKey="false" type="property"/>
     <attribute name="Package" objectField="Package" dataType="String" isPrimaryKey="false" type="property"/>
     <attribute name="DiscontinuedFlag" objectField="DiscontinuedFlag" dataType="Integer" isPrimaryKey="false" type="property"/>
+    <attribute name="ObjSupplier" objectField="supplier" entity="Supplier" isPrimaryKey="false" type="object"/>
   </attributes>
 </entity>

@@ -1,75 +1,78 @@
 package com.business.businessobjects.Product.DTO;
 
+import com.business.businessobjects.Supplier.DTO.Supplier;
 import com.business.common.base.BusBase;
+
 import java.lang.Integer;
 import java.lang.String;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(
-    name = "AST_PRODUCT"
+        name = "AST_PRODUCT"
 )
 public class Product extends BusBase {
-  @Id
-  private Integer Id;
+    @Id
+    private Integer Id;
 
-  private String ProductName;
+    private String ProductName;
+    @ManyToOne
+    private Supplier supplier;
 
-  private Integer SupplierId;
+    private String UnitPrice;
 
-  private String UnitPrice;
+    private String Package;
 
-  private String Package;
+    private Integer DiscontinuedFlag;
 
-  private Integer DiscontinuedFlag;
+    public Integer getId() {
+        return Id;
+    }
 
-  public Integer getId() {
-    return Id;
-  }
+    public void setId(Integer Id) {
+        this.Id = Id;
+    }
 
-  public void setId(Integer Id) {
-    this.Id=Id;
-  }
+    public String getProductName() {
+        return ProductName;
+    }
 
-  public String getProductName() {
-    return ProductName;
-  }
+    public void setProductName(String ProductName) {
+        this.ProductName = ProductName;
+    }
 
-  public void setProductName(String ProductName) {
-    this.ProductName=ProductName;
-  }
+    public Supplier getSupplier() {
+        return supplier;
+    }
 
-  public Integer getSupplierId() {
-    return SupplierId;
-  }
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
+    }
 
-  public void setSupplierId(Integer SupplierId) {
-    this.SupplierId=SupplierId;
-  }
+    public String getUnitPrice() {
+        return UnitPrice;
+    }
 
-  public String getUnitPrice() {
-    return UnitPrice;
-  }
+    public void setUnitPrice(String UnitPrice) {
+        this.UnitPrice = UnitPrice;
+    }
 
-  public void setUnitPrice(String UnitPrice) {
-    this.UnitPrice=UnitPrice;
-  }
+    public String getPackage() {
+        return Package;
+    }
 
-  public String getPackage() {
-    return Package;
-  }
+    public void setPackage(String Package) {
+        this.Package = Package;
+    }
 
-  public void setPackage(String Package) {
-    this.Package=Package;
-  }
+    public Integer getDiscontinuedFlag() {
+        return DiscontinuedFlag;
+    }
 
-  public Integer getDiscontinuedFlag() {
-    return DiscontinuedFlag;
-  }
-
-  public void setDiscontinuedFlag(Integer DiscontinuedFlag) {
-    this.DiscontinuedFlag=DiscontinuedFlag;
-  }
+    public void setDiscontinuedFlag(Integer DiscontinuedFlag) {
+        this.DiscontinuedFlag = DiscontinuedFlag;
+    }
 }

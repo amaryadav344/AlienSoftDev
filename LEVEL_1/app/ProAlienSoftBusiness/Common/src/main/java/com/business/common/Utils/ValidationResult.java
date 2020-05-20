@@ -1,6 +1,6 @@
 package com.business.common.Utils;
 
-public class UtlError {
+public class ValidationResult {
     public static enum TYPE {
         INFO,
         WARNING,
@@ -14,7 +14,7 @@ public class UtlError {
     private TYPE type;
     private String message;
 
-    public UtlError(TYPE type, String message) {
+    public ValidationResult(TYPE type, String message) {
         this.type = type;
         this.message = message;
     }

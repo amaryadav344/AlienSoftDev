@@ -3,14 +3,14 @@ package com.business.common.base;
 import com.business.common.Interface.IPersistent;
 import com.business.common.Interface.IValidation;
 import com.business.common.Interface.IValidator;
-import com.business.common.Utils.UtlError;
+import com.business.common.Utils.ValidationResult;
 
 import java.util.List;
 
 public abstract class ServiceBase<T extends BusBase, ID> implements IPersistent<T>, IValidation<T> {
     protected RepositoryBase<T, ID> repositoryBase;
     protected IValidator validator;
-    protected List<UtlError> errors;
+    protected List<ValidationResult> errors;
 
     public ServiceBase(RepositoryBase<T, ID> repositoryBase, IValidator validator) {
         this.repositoryBase = repositoryBase;
